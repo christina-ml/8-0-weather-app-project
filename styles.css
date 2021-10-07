@@ -1,0 +1,59 @@
+#main-sections-container {
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-areas:
+    "header header header"
+    "main main sidebar"
+    "forecast forecast .";
+    grid-gap: 10px;
+}
+
+#current-city-weather {
+    list-style-type: none;
+}
+
+#weather-search-header {
+    border: 1px solid black;
+    grid-area: header;
+    background-color: teal;
+    text-align: center;
+}
+
+.display {
+    border: 1px solid red;
+    grid-area: main;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.history {
+    border: 1px solid red;
+    grid-area: sidebar;
+}
+
+#future-forecast{
+    border: 1px solid teal;
+    grid-area: forecast;
+    /* make another grid */
+    display: grid;
+    grid-template-areas:
+    "today tomorrow after";
+    text-align: center;
+}
+
+#todays-weather{
+    grid-area: today;
+}
+
+#tomorrows-weather{
+    grid-area: tomorrow;
+}
+
+#day-after-weather{
+    grid-area: after;
+}
+
+/* same styles for all 3 lists */
+.temperature-forecast{
+    list-style-type: none;
+}
