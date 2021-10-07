@@ -10,6 +10,8 @@
 
 #current-city-weather {
     list-style-type: none;
+    /* remove indentation from `ul` */
+    padding-left: 0;
 }
 
 #weather-search-header {
@@ -56,4 +58,6 @@
 /* same styles for all 3 lists */
 .temperature-forecast{
     list-style-type: none;
+    /* remove indentation from `ul` */
+    padding-left: 0;
 }
