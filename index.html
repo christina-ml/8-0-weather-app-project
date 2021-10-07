@@ -13,10 +13,17 @@
         <header id="weather-search-header">
             <h1>Weather App</h1>
             <form>
+                <div id="error-message"></div>
                 <label for="pick-location"></label>
                 <span><b>Pick a Location</b></span>
-                <input id="pick-location" name="pick-location" type="text"/>
-                <input type="submit" value="Get Weather"/>
+                <!-- text input -->
+                <input
+                    id="pick-location"
+                    name="pick-location"
+                    type="text"
+                    placeholder="type a location"/>
+                <!-- submit button -->
+                <input id="get-weather-button" type="submit" value="Get Weather"/>
             </form>
         </header>
         <main class="display">
@@ -24,13 +31,13 @@
             Choose a location to view the weather.
 
             <!-- After search has been made -->
-            <h2>Toronto</h2>
+            <!-- <h2>Toronto</h2>
             <ul id="current-city-weather">
                 <li><b>Area:</b> Toronto</li>
                 <li><b>Region:</b> Ontario</li>
                 <li><b>Country:</b> Canada</li>
                 <li><b>Currently:</b> Feels Like 92˚F</li> 
-            </ul>
+            </ul> -->
         </main>
 
         <sidebar class="history">
