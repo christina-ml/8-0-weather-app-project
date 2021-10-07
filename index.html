@@ -9,20 +9,71 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Weather App</h1>
-        <form>
-            <label for=""></label>
-            <input id="" name="" type="text"/>
-            <input type="submit"/>
-        </form>
-    </header>
-    <main class="display">
-        Main section
-        Placeholder text goes here
-    </main>
-    <sidebar class="history">
-        Previous Searches
-    </sidebar>
+    <div id="main-sections-container">
+        <header id="weather-search-header">
+            <h1>Weather App</h1>
+            <form>
+                <label for="pick-location"></label>
+                <span>Pick a Location</span>
+                <input id="pick-location" name="pick-location" type="text"/>
+                <input type="submit" value="Get Weather"/>
+            </form>
+        </header>
+        <main class="display">
+            <!-- When page loads -->
+            Choose a location to view the weather.
+
+            <!-- After search has been made -->
+            <h2>Toronto</h2>
+            <ul id="current-city-weather">
+                <li><b>Area:</b> Toronto</li>
+                <li><b>Region:</b> Ontario</li>
+                <li><b>Country:</b> Canada</li>
+                <li><b>Currently:</b> Feels Like 92˚F</li> 
+            </ul>
+        </main>
+
+        <sidebar class="history">
+            <h4>Previous Searches</h4>
+            <!-- When page loads -->
+            <p>No previous searches</p>
+
+            <!-- After search has been made -->
+            <ul>
+                <li>Melbourne - 37˚F</li>
+                <li>Shanghai - 92˚F</li>
+                <li>Miami - 100˚F</li>
+                <li>Seattle - 65˚F</li>
+                <li>Toronto - 92˚F</li>
+            </ul>
+        </sidebar>
+
+        <div id="future-forecast">
+            <div id="todays-weather">
+                <h4>Today</h4>
+                <ul class="temperature-forecast">
+                    <li><b>Average Temperature:</b> 80˚F</li>
+                    <li><b>Max Temperature:</b> 88˚F</li>
+                    <li><b>Min Temperature:</b> 72˚F</li>
+                </ul>
+            </div>
+            <div id="tomorrows-weather">
+                <h4>Tomorrow</h4>
+                <ul class="temperature-forecast">
+                    <li><b>Average Temperature:</b> 79˚F</li>
+                    <li><b>Max Temperature:</b> 85˚F</li>
+                    <li><b>Min Temperature:</b> 75˚F</li>
+                </ul>
+            </div>
+            <div id="day-after-weather">
+                <h4>Day After Tomorrow</h4>
+                <ul class="temperature-forecast">
+                    <li><b>Average Temperature:</b> 80˚F</li>
+                    <li><b>Max Temperature:</b> 90˚F</li>
+                    <li><b>Min Temperature:</b> 74˚F</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
