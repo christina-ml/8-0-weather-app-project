@@ -12,6 +12,7 @@
     list-style-type: none;
     /* remove indentation from `ul` */
     padding-left: 0;
+    line-height: 2;
 }
 
 #weather-search-header {
@@ -19,6 +20,8 @@
     grid-area: header;
     background-color: teal;
     text-align: center;
+    padding-bottom: 20px;
+    color: white;
 }
 
 .display {
@@ -26,6 +29,7 @@
     grid-area: main;
     background-color: lightblue;
     text-align: center;
+    padding-top: 20px;
 }
 
 .history {
@@ -60,4 +64,5 @@
     list-style-type: none;
     /* remove indentation from `ul` */
     padding-left: 0;
+    line-height: 2;
 }
