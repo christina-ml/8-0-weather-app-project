@@ -1,12 +1,35 @@
-let userLocation = "Detroit"
+let pickLocation = document.querySelector("#pick-location");
+
+pickLocation.addEventListener("click", (event)=>{
+    event.preventDefault();
+    function myFunction() {
+        let locationInput = document.querySelector("#pick-location").value;
+        document.querySelector(".display").innerHTML = locationInput;
+    }
+})
+
+/* First fetch - information for url */
+let userLocation = "";
 let url = "https://wttr.in/" + userLocation + "?format=j1";
-
-
 fetch(url)
     .then((res)=>{
         return res.json();
     }).then((data)=>{
-        console.log(data);
+        let city = data.nearest_area[0].areaName[0].value;
+        userLocation = city;
+        console.log(userLocation);
+
+    }).catch((err)=>{
+        console.log(err);
+    })
+// let errMessage = document.querySelector("#error-message");
+
+/* Second fetch */
+fetch(url)
+    .then((res)=>{
+        return res.json();
+    }).then((data)=>{
+        // console.log(data);
         /* Declare variables */
         let city = data.nearest_area[0].areaName[0].value;
         let region = data.nearest_area[0].region[0].value;
@@ -22,38 +45,26 @@ fetch(url)
         //     console.log(city);
         // }
 
-let getWeatherButton = document.querySelector("#get-weather-button");
-getWeatherButton.addEventListener("submit", (e)=>{
-    e.preventDefault();
+    let getWeatherButton = document.querySelector("#get-weather-button");
+    getWeatherButton.addEventListener("submit", (e)=>{
+        e.preventDefault();
 
-    // grab value of `userInput`
-    let weatherLocation = e.target["pick-location"].value;
-    console.log("weatherLocation", weatherLocation);
+        // get value of `userInput`
+        let weatherLocation = e.target["pick-location"].value;
+        console.log("weatherLocation", weatherLocation);
 
-    // make input field blank after each input is submitted
-    e.target["pick-location"].value = "";
+        // make input field blank after each input is submitted
+        e.target["pick-location"].value = "";
 
-    let weatherDisplay = document.querySelector(".display");
-    weatherDisplay.innerHTML = `
-    <h2>${city}</h2>
+        let weatherDisplay = document.querySelector(".display");
+        weatherDisplay.innerHTML = `
+        <h2>${city}</h2>
             <ul id="current-city-weather">
                 <li><b>Area:</b> ${city}</li>
                 <li><b>Region:</b> ${region}</li>
                 <li><b>Country:</b> ${country}</li>
                 <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
             </ul>
-    `
-})
-
-/*
-If another search is made, the user should:
- See the main .display element change to account for the new city, updating all relevant information.
- See the new city name appear at the bottom of the list in the .history element, with the "feels like" temperature.
-*/
-
-
-
-
-    }).catch((err)=>{
-        console.log(err);
+        `
+        })
     })
