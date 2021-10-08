@@ -6,7 +6,18 @@ fetch(url)
     .then((res)=>{
         return res.json();
     }).then((data)=>{
-        console.log(data);
+        // console.log(data);
+        let city = data.nearest_area[0].areaName[0].value;
+        console.log(city);
+
+        /* Using a for loop to get city */
+        let areaList = data.nearest_area;
+        for(let nearest of areaList){
+            let { areaName } = nearest;
+            let city = areaName[0].value;
+            // console.log(city);
+        }
+
 
 /*
 When a user enters text into the search form and presses submit, they should:
@@ -26,12 +37,18 @@ getWeatherButton.addEventListener("submit", (e)=>{
 
     // make input field blank after each input is submitted
     e.target["pick-location"].value = "";
+
+    let weatherDisplay = document.querySelector(".display");
+    weatherDisplay.innerHTML = `
+    <h2>Toronto</h2>
+            <ul id="current-city-weather">
+                <li><b>Area:</b> Toronto</li>
+                <li><b>Region:</b> Ontario</li>
+                <li><b>Country:</b> Canada</li>
+                <li><b>Currently:</b> Feels Like 92˚F</li>
+            </ul>
+    `
 })
-
-// let cityName = data.nearest_area[areaName].value;
-// console.log("cityName", cityName);
-
-
 
 /*
 If another search is made, the user should:
