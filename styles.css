@@ -5,6 +5,7 @@
     grid-template-areas:
     "header header header"
     "main main sidebar"
+    "forecast forecast sidebar"
     "forecast forecast .";
     grid-gap: 10px;
     /* width: 900px;
@@ -33,6 +34,7 @@
     background-color: lightblue;
     text-align: center;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .history {
