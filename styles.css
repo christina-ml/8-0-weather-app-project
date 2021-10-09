@@ -1,6 +1,6 @@
 #main-sections-container {
     /* border: 1px solid black; */
-    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
     display: grid;
     grid-template-areas:
     "header header header"
@@ -8,8 +8,8 @@
     "forecast forecast sidebar"
     "forecast forecast .";
     grid-gap: 10px;
-    /* width: 900px;
-    margin: 0 auto; */
+    width: 900px;
+    margin: 0 auto;
 }
 
 #current-city-weather {
@@ -35,11 +35,13 @@
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-left: 10px;
 }
 
 .history {
     border: 1px solid red;
     grid-area: sidebar;
+    margin-right: 10px;
 }
 
 #future-forecast{
@@ -50,6 +52,7 @@
     grid-template-areas:
     "today tomorrow after";
     text-align: center;
+    margin-left: 10px;
 }
 
 #todays-weather{
