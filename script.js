@@ -2,13 +2,9 @@ let getWeather = document.querySelector("#get-weather-button");
 
 getWeather.addEventListener("click", (event)=>{
     event.preventDefault();
-    function locationInputFunc() {
-        let locationInput = document.querySelector("#pick-location").value;
-        document.querySelector(".display").innerHTML = locationInput;
-        
-        // make input field blank after input is submitted
-        event.target["pick-location"].value = "";
-    }
+
+    let locationInput = document.querySelector("#pick-location").value;
+    document.querySelector(".display").innerHTML = locationInput;
 
     /* Fetch - information for url */
     let userLocation = "";
@@ -20,7 +16,6 @@ getWeather.addEventListener("click", (event)=>{
             let city = data.nearest_area[0].areaName[0].value;
             userLocation = city;
 
-            /* Declare variables */
             let region = data.nearest_area[0].region[0].value;
             let country = data.nearest_area[0].country[0].value;
             let currentWeather = data.current_condition[0].FeelsLikeF;
