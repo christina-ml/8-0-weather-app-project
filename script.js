@@ -1,25 +1,24 @@
-let getWeather = document.querySelector("#get-weather-button");
+/* select user input form */
+let userInputForm = document.querySelector("#user-input");
 
-getWeather.addEventListener("click", (event)=>{
+userInputForm.addEventListener("submit", (event)=>{
     event.preventDefault();
 
-    let locationInput = document.querySelector("#pick-location").value;
-    document.querySelector(".display").innerHTML = locationInput;
+    /* Get information on user input, not button*/
+    let userLocation = event.target["pick-location"].value;
+    // console.log("userLocation", userLocation); // test
 
     /* Fetch - information for url */
-    let userLocation = "";
-    let url = "https://wttr.in/" + userLocation + "?format=j1";
-    fetch(url)
-        .then((res)=>{
-            return res.json();
-        }).then((data)=>{
+    fetch("https://wttr.in/" + userLocation + "?format=j1")
+    .then((res)=>{
+        return res.json();
+    }).then((data)=>{
             let city = data.nearest_area[0].areaName[0].value;
-            userLocation = city;
-
             let region = data.nearest_area[0].region[0].value;
             let country = data.nearest_area[0].country[0].value;
             let currentWeather = data.current_condition[0].FeelsLikeF;
 
+            /* select main display section */
             let weatherDisplay = document.querySelector(".display");
             weatherDisplay.innerHTML = `
             <h2>${city}</h2>
