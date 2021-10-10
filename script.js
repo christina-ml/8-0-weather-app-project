@@ -84,6 +84,17 @@ userInputForm.addEventListener("submit", (event)=>{
             </ul>
         </div>
         `;
+
+        /*
+        - The sidebar retains a link to the search.
+        - See the city name and "feels like" temperature show up in the `.history` element.
+        - See the new city name appear at the bottom of the list in the `.history` element, with the "feels like" temperature.
+        If one of the links in the `.history` element is clicked, the user should:
+        - See the main section of the page show weather information about that city.
+        - _Not see_ a new link show up in the `.history` element.
+        */
+
+
         }).catch((err)=>{
             console.log(err);
     })
