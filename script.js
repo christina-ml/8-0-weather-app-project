@@ -1,4 +1,6 @@
 function getWeatherFunction(weatherAPI){
+
+    console.log(clickedAnchor);
 /* Fetch - information for url */
 fetch(weatherAPI)
     .then((res)=>{
@@ -105,13 +107,18 @@ let clickedAnchor;
 
 /* EVENT LISTENER */
 function clickedPreviousFunction() {
-    let aTags = document.querySelectorAll(".history a");
-    for (let tag of aTags) {
-        console.log(tag)
+document.querySelectorAll(".history a").forEach((tag)=>{
         tag.addEventListener("click", (event)=>{
-            event.preventDefault();
-            clickedAnchor = event.target.href;
-            getWeatherFunction(clickedAnchor); // call function
-        })
-    }
+        event.preventDefault();
+        clickedAnchor = event.target.href;
+        getWeatherFunction(clickedAnchor); // call function
+    })
+})
+    // for (let tag of aTags) {
+    //     tag.addEventListener("click", (event)=>{
+    //         event.preventDefault();
+    //         clickedAnchor = event.target.href;
+    //         getWeatherFunction(clickedAnchor); // call function
+    //     })
+    // }
 }
