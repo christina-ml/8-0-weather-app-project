@@ -21,28 +21,20 @@ fetch(weatherAPI)
                 <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
             </ul>
         `;
-        /*
-        - Three sections below the main section should show information for the next few days.
-        - See detailed information for the current day and the next two days below the main `.display` element.
-        */
+
     /* Declare Variables for Today, Tomorrow, Day After*/
         /* TODAY */
         let todayAverage = data.weather[0].avgtempF;
         let todayMaxTemp = data.weather[0].maxtempF;
         let todayMinTemp = data.weather[0].mintempF;
-        // console.log("todayAverage:", todayAverage, todayMaxTemp, todayMinTemp); // test
-
         /* TOMORROW */
         let tomorrowAverage = data.weather[1].avgtempF;
         let tomorrowMaxTemp = data.weather[1].maxtempF;
         let tomorrowMinTemp = data.weather[1].mintempF;
-        //  console.log("tomorrowAverage:", tomorrowAverage, tomorrowMaxTemp, tomorrowMinTemp); // test
-
         /* DAY AFTER TOMORROW*/
         let dayAfterTomorrowAverage = data.weather[2].avgtempF;
         let dayAfterTomorrowMaxTemp = data.weather[2].maxtempF;
         let dayAfterTomorrowMinTemp = data.weather[2].mintempF;
-        //  console.log("dayAfterTomorrowAverage:", dayAfterTomorrowAverage, dayAfterTomorrowMaxTemp, dayAfterTomorrowMinTemp); // test
 
         /* select section where `future-forecast` info will be */
         let futureForecast = document.querySelector("#future-forecast");
@@ -74,16 +66,6 @@ fetch(weatherAPI)
         </div>
         `;
 
-        /*
-        - The sidebar retains a link to the search.
-        - See the city name and "feels like" temperature show up in the `.history` element.
-        - See the new city name appear at the bottom of the list in the `.history` element, with the "feels like" temperature.
-        If one of the links in the `.history` element is clicked, the user should:
-        - See the main section of the page show weather information about that city.
-        - _Not see_ a new link show up in the `.history` element.
-        */
-        /* select section for previous searches - paragraph */
-
         if (clickedAnchor === undefined) {
         let history = document.querySelector(".history");
         /* prevent default on link so page does not refresh
@@ -92,18 +74,7 @@ fetch(weatherAPI)
         <a href="${weatherAPI}" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F
         `;
         }
-
         clickedPreviousFunction(); // when `a` exists
-        /* Append the li's to the `history p` section every time search is made */
-        // let history = document.querySelector(".history");
-        
-        // let historyHtml = `<a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F`
-
-        // let historyLi = document.querySelector(".history li");
-        // historyLi.append(historyHtml);
-
-        // history.append(historyLi);
-
         }).catch((err)=>{
             console.log(err);
     })
@@ -114,7 +85,6 @@ let userInputForm = document.querySelector("#user-input");
 
 userInputForm.addEventListener("submit", (event)=>{
     event.preventDefault();
-
     /* Get information on user input, not button*/
     let userLocation = event.target["pick-location"].value;
 
@@ -126,7 +96,6 @@ userInputForm.addEventListener("submit", (event)=>{
     getWeatherFunction(weatherAPI);
     // let errMessage = document.querySelector("#error-message");
 })
-
 
 // getWeatherFunction();
 let clickedAnchor;
