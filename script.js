@@ -38,19 +38,22 @@ userInputForm.addEventListener("submit", (event)=>{
         */
        /* Declare Variables for Today, Tomorrow, Day After*/
         /* TODAY */
-        let todayAverage = "80";
-        let todayMaxTemp = "88";
-        let todayMinTemp = "72";
+        let todayAverage = data.weather[0].avgtempF;
+        let todayMaxTemp = data.weather[0].maxtempF;
+        let todayMinTemp = data.weather[0].mintempF;
+        // console.log("todayAverage:", todayAverage, todayMaxTemp, todayMinTemp); // test
 
         /* TOMORROW */
-        let tomorrowAverage = "80";
-        let tomorrowMaxTemp = "88";
-        let tomorrowMinTemp = "72";
+        let tomorrowAverage = data.weather[1].avgtempF;
+        let tomorrowMaxTemp = data.weather[1].maxtempF;
+        let tomorrowMinTemp = data.weather[1].mintempF;
+        //  console.log("tomorrowAverage:", tomorrowAverage, tomorrowMaxTemp, tomorrowMinTemp); // test
 
         /* DAY AFTER TOMORROW*/
-        let dayAfterTomorrowAverage = "80";
-        let dayAfterTomorrowMaxTemp = "88";
-        let dayAfterTomorrowMinTemp = "72";
+        let dayAfterTomorrowAverage = data.weather[2].avgtempF;
+        let dayAfterTomorrowMaxTemp = data.weather[2].maxtempF;
+        let dayAfterTomorrowMinTemp = data.weather[2].mintempF;
+        //  console.log("dayAfterTomorrowAverage:", dayAfterTomorrowAverage, dayAfterTomorrowMaxTemp, dayAfterTomorrowMinTemp); // test
 
         /* select section where `future-forecast` info will be */
         let futureForecast = document.querySelector("#future-forecast");
@@ -80,12 +83,7 @@ userInputForm.addEventListener("submit", (event)=>{
                 <li><b>Min Temperature:</b> ${dayAfterTomorrowMinTemp}˚F</li>
             </ul>
         </div>
-        `
-
-
-
-
-
+        `;
         }).catch((err)=>{
             console.log(err);
     })
