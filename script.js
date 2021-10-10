@@ -95,23 +95,32 @@ userInputForm.addEventListener("submit", (event)=>{
         - _Not see_ a new link show up in the `.history` element.
         */
         /* select section for previous searches - paragraph */
-        let history = document.querySelector(".history");
-
-        let ul = document.createElement("ul");
+        let history = document.querySelector(".history ul");
+        
+        // let ul = document.createElement("ul");
         let li = document.createElement("li");
+
+        history.append(li);
 
         /* create elements, and appending to previous section */
 
         /* prevent default on link so page does not refresh
         Link to the weather API page */
-        history.innerHTML += `
+        li.innerHTML += `
         <a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F
         `;
 
 
 
         /* Append the li's to the `history p` section every time search is made */
+        // let history = document.querySelector(".history");
+        
+        // let historyHtml = `<a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F`
 
+        // let historyLi = document.querySelector(".history li");
+        // historyLi.append(historyHtml);
+
+        // history.append(historyLi);
 
 
 
