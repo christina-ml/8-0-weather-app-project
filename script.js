@@ -74,6 +74,9 @@ fetch(weatherAPI)
         <a href="${weatherAPI}" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F
         `;
         }
+        // console.log(clickedAnchor);
+        clickedAnchor = undefined;
+
         clickedPreviousFunction(); // when `a` exists
         }).catch((err)=>{
             console.log(err);
@@ -102,9 +105,13 @@ let clickedAnchor;
 
 /* EVENT LISTENER */
 function clickedPreviousFunction() {
-    document.querySelector(".history a").addEventListener("click", (event)=>{
-        event.preventDefault();
-        clickedAnchor = event.target.href;
-        getWeatherFunction(clickedAnchor); // call function
-    });
+    let aTags = document.querySelectorAll(".history a");
+    for (let tag of aTags) {
+        console.log(tag)
+        tag.addEventListener("click", (event)=>{
+            event.preventDefault();
+            clickedAnchor = event.target.href;
+            getWeatherFunction(clickedAnchor); // call function
+        })
+    }
 }
