@@ -15,6 +15,7 @@ userInputForm.addEventListener("submit", (event)=>{
     .then((res)=>{
         return res.json();
     }).then((data)=>{
+        console.log(data); /* see all the data */
         let city = data.nearest_area[0].areaName[0].value;
         let region = data.nearest_area[0].region[0].value;
         let country = data.nearest_area[0].country[0].value;
@@ -30,7 +31,61 @@ userInputForm.addEventListener("submit", (event)=>{
                 <li><b>Country:</b> ${country}</li>
                 <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
             </ul>
+        `;
+        /*
+        - Three sections below the main section should show information for the next few days.
+        - See detailed information for the current day and the next two days below the main `.display` element.
+        */
+       /* Declare Variables for Today, Tomorrow, Day After*/
+        /* TODAY */
+        let todayAverage = "80";
+        let todayMaxTemp = "88";
+        let todayMinTemp = "72";
+
+        /* TOMORROW */
+        let tomorrowAverage = "80";
+        let tomorrowMaxTemp = "88";
+        let tomorrowMinTemp = "72";
+
+        /* DAY AFTER TOMORROW*/
+        let dayAfterTomorrowAverage = "80";
+        let dayAfterTomorrowMaxTemp = "88";
+        let dayAfterTomorrowMinTemp = "72";
+
+        /* select section where `future-forecast` info will be */
+        let futureForecast = document.querySelector("#future-forecast");
+        /* Add innerHTML and string interpolation */
+        futureForecast.innerHTML = `
+            <div id="todays-weather">
+            <h3>Today</h3>
+            <ul class="temperature-forecast">
+                <li><b>Average Temperature:</b> ${todayAverage}˚F</li>
+                <li><b>Max Temperature:</b> ${todayMaxTemp}˚F</li>
+                <li><b>Min Temperature:</b> ${todayMinTemp}˚F</li>
+            </ul>
+        </div>
+        <div id="tomorrows-weather">
+            <h3>Tomorrow</h3>
+            <ul class="temperature-forecast">
+                <li><b>Average Temperature:</b> ${tomorrowAverage}˚F</li>
+                <li><b>Max Temperature:</b> ${tomorrowMaxTemp}˚F</li>
+                <li><b>Min Temperature:</b> ${tomorrowMinTemp}˚F</li>
+            </ul>
+        </div>
+        <div id="day-after-weather">
+            <h3>Day After Tomorrow</h3>
+            <ul class="temperature-forecast">
+                <li><b>Average Temperature:</b> ${dayAfterTomorrowAverage}˚F</li>
+                <li><b>Max Temperature:</b> ${dayAfterTomorrowMaxTemp}˚F</li>
+                <li><b>Min Temperature:</b> ${dayAfterTomorrowMinTemp}˚F</li>
+            </ul>
+        </div>
         `
+
+
+
+
+
         }).catch((err)=>{
             console.log(err);
     })
