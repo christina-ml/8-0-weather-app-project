@@ -58,11 +58,11 @@ Your web application should look similar to the screenshot below when the page i
 
 In particular, make sure the following is true:
 
-- [ ] The header should include the application's title.
-- [ ] The header should include a search form with a label, text input, and submit input.
-- [ ] The main section of the page contains placeholder text.
-- [ ] The sidebar includes the title "Previous Searches" and a message that lets the user know no searches have been made.
-- [ ] CSS Grid should be used to structure the page.
+- [x] The header should include the application's title.
+- [x] The header should include a search form with a label, text input, and submit input.
+- [x] The main section of the page contains placeholder text.
+- [x] The sidebar includes the title "Previous Searches" and a message that lets the user know no searches have been made.
+- [x] CSS Grid should be used to structure the page.
 
 #### After Search
 
@@ -72,9 +72,9 @@ After searching, your page should look similar to the screenshot below.
 
 In particular, make sure to include the following:
 
-- [ ] The main section of the page should be filled in with relevant information received from the API. (More detailed information below.)
+- [x] The main section of the page should be filled in with relevant information received from the API. (More detailed information below.)
 - [ ] Three sections below the main section should show information for the next few days.
-- [ ] CSS Grid should be used throughout to structure the page.
+- [x] CSS Grid should be used throughout to structure the page.
 - [ ] The sidebar retains a link to the search.
 
 #### Multiple Searches
@@ -88,17 +88,17 @@ After multiple searches, the sidebar will continue to fill up with more searches
 The following features are required for your application. These features detail what is needed to pass the tests.
 
 - When a user arrives at the page, they should:
-  - [ ] See an `h1` with the text "Weather App" in the header.
-  - [ ] See a form in the header that includes both a text and submit input.
-  - [ ] See a `.display` element on the left side of the page, that suggests that they make a search.
-  - [ ] See a `.history` element on the right side of the page, that includes the text "Previous Searches".
+  - [x] See an `h1` with the text "Weather App" in the header.
+  - [x] See a form in the header that includes both a text and submit input.
+  - [x] See a `.display` element on the left side of the page, that suggests that they make a search.
+  - [x] See a `.history` element on the right side of the page, that includes the text "Previous Searches".
 - When a user enters text into the search form and presses submit, they should:
   - [ ] See the text disappear from the search bar.
-  - [ ] See the name of the city that was searched as well as the area, region, country, and currently "feels like" temperature for that location.
+  - [x] See the name of the city that was searched as well as the area, region, country, and currently "feels like" temperature for that location.
   - [ ] See detailed information for the current day and the next two days below the main `.display` element.
   - [ ] See the city name and "feels like" temperature show up in the `.history` element.
 - If another search is made, the user should:
-  - [ ] See the main `.display` element change to account for the new city, updating all relevant information.
+  - [x] See the main `.display` element change to account for the new city, updating all relevant information.
   - [ ] See the new city name appear at the bottom of the list in the `.history` element, with the "feels like" temperature.
 - If one of the links in the `.history` element is clicked, the user should:
   - [ ] See the main section of the page show weather information about that city.
