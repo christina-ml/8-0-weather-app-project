@@ -10,12 +10,13 @@ userInputForm.addEventListener("submit", (event)=>{
     /* Clears search bar after user input is submitted */
     event.target["pick-location"].value = "";
 
+    let weatherAPI = "https://wttr.in/" + userLocation + "?format=j1";
     /* Fetch - information for url */
-    fetch("https://wttr.in/" + userLocation + "?format=j1")
+    fetch(weatherAPI)
     .then((res)=>{
         return res.json();
     }).then((data)=>{
-        // console.log(data); /* see all the data */
+        console.log(data); /* see all the data */
         let city = data.nearest_area[0].areaName[0].value;
         let region = data.nearest_area[0].region[0].value;
         let country = data.nearest_area[0].country[0].value;
@@ -93,6 +94,26 @@ userInputForm.addEventListener("submit", (event)=>{
         - See the main section of the page show weather information about that city.
         - _Not see_ a new link show up in the `.history` element.
         */
+        /* select section for previous searches - paragraph */
+        let history = document.querySelector(".history");
+
+        let ul = document.createElement("ul");
+        let li = document.createElement("li");
+
+        /* create elements, and appending to previous section */
+
+        /* prevent default on link so page does not refresh
+        Link to the weather API page */
+        history.innerHTML += `
+        <a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F
+        `;
+
+
+
+        /* Append the li's to the `history p` section every time search is made */
+
+
+
 
 
         }).catch((err)=>{
