@@ -15,7 +15,7 @@ userInputForm.addEventListener("submit", (event)=>{
     .then((res)=>{
         return res.json();
     }).then((data)=>{
-        console.log(data); /* see all the data */
+        // console.log(data); /* see all the data */
         let city = data.nearest_area[0].areaName[0].value;
         let region = data.nearest_area[0].region[0].value;
         let country = data.nearest_area[0].country[0].value;

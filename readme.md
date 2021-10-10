@@ -73,7 +73,7 @@ After searching, your page should look similar to the screenshot below.
 In particular, make sure to include the following:
 
 - [x] The main section of the page should be filled in with relevant information received from the API. (More detailed information below.)
-- [ ] Three sections below the main section should show information for the next few days.
+- [x] Three sections below the main section should show information for the next few days.
 - [x] CSS Grid should be used throughout to structure the page.
 - [ ] The sidebar retains a link to the search.
 
@@ -93,9 +93,9 @@ The following features are required for your application. These features detail 
   - [x] See a `.display` element on the left side of the page, that suggests that they make a search.
   - [x] See a `.history` element on the right side of the page, that includes the text "Previous Searches".
 - When a user enters text into the search form and presses submit, they should:
-  - [ ] See the text disappear from the search bar.
+  - [x] See the text disappear from the search bar.
   - [x] See the name of the city that was searched as well as the area, region, country, and currently "feels like" temperature for that location.
-  - [ ] See detailed information for the current day and the next two days below the main `.display` element.
+  - [x] See detailed information for the current day and the next two days below the main `.display` element.
   - [ ] See the city name and "feels like" temperature show up in the `.history` element.
 - If another search is made, the user should:
   - [x] See the main `.display` element change to account for the new city, updating all relevant information.
