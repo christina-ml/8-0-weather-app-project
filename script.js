@@ -1,4 +1,4 @@
-function callBackFunction(cityLocation, addOrNotAdd){
+function weatherFunction(cityLocation, addOrNotAdd){
     let errMessage = document.querySelector("#error-message");
         if (cityLocation !== ""){
             /* Clears search bar after user input is submitted */
@@ -6,6 +6,7 @@ function callBackFunction(cityLocation, addOrNotAdd){
             input.value = "";
             // event.target["pick-location"].value = "";
             let weatherAPI = "https://wttr.in/" + cityLocation + "?format=j1";
+            console.log(cityLocation);
             /* Fetch - information for url */
             fetch(weatherAPI)
             .then((res)=>{
@@ -87,9 +88,7 @@ function callBackFunction(cityLocation, addOrNotAdd){
                     // <ul>
                     //     <li><a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F</li>
                     // </ul>
-                    // `
-                    let divHistoryContainer = document.createElement("div");
-    
+                    // `    
                     /* Create elements */
                     let ul = document.createElement("ul");
                     let li = document.createElement("li");
@@ -113,7 +112,7 @@ function callBackFunction(cityLocation, addOrNotAdd){
                             event.preventDefault();
                             // console.log(event.target.textContent);
                             let forHyperLinks = event.target.textContent; // city name clicked on
-                            callBackFunction(forHyperLinks, false); // should not add
+                            weatherFunction(forHyperLinks, false); // should not add
                         })
                     });
                 }
@@ -133,5 +132,5 @@ let userInputForm = document.querySelector("#user-input");
 userInputForm.addEventListener("submit", (event)=>{
     event.preventDefault();
     let userInput = event.target["pick-location"].value;
-    callBackFunction(userInput, true);
+    weatherFunction(userInput, true);
 })
