@@ -2,8 +2,7 @@ function callBackFunction(cityLocation, addOrNotAdd){
     let errMessage = document.querySelector("#error-message");
         if (userLocation !== ""){
             /* Clears search bar after user input is submitted */
-            event.target["pick-location"].value = "";
-
+            // event.target["pick-location"].value = "";
             let weatherAPI = "https://wttr.in/" + cityLocation + "?format=j1";
             /* Fetch - information for url */
             fetch(weatherAPI)
@@ -26,7 +25,9 @@ function callBackFunction(cityLocation, addOrNotAdd){
                         <li><b>Country:</b> ${country}</li>
                         <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
                     </ul>
+                    
                 `;
+
 
             /* Declare Variables for Today, Tomorrow, Day After*/
                 /* TODAY */
