@@ -1,7 +1,9 @@
 function callBackFunction(cityLocation, addOrNotAdd){
     let errMessage = document.querySelector("#error-message");
-        if (userLocation !== ""){
+        if (cityLocation !== ""){
             /* Clears search bar after user input is submitted */
+            let input = document.querySelector("#pick-location");
+            input.value = "";
             // event.target["pick-location"].value = "";
             let weatherAPI = "https://wttr.in/" + cityLocation + "?format=j1";
             /* Fetch - information for url */
@@ -18,14 +20,16 @@ function callBackFunction(cityLocation, addOrNotAdd){
                 /* select main display section */
                 let weatherDisplay = document.querySelector(".display");
                 weatherDisplay.innerHTML = `
-                <h2>${city}</h2>
-                    <ul id="current-city-weather">
-                        <li><b>Area:</b> ${city}</li>
-                        <li><b>Region:</b> ${region}</li>
-                        <li><b>Country:</b> ${country}</li>
-                        <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
-                    </ul>
-                    
+                <div id="current-city-weather-title>
+                    <h2>${city}</h2>
+                        <ul id="current-city-weather">
+                            <li><b>Area:</b> ${city}</li>
+                            <li><b>Region:</b> ${region}</li>
+                            <li><b>Country:</b> ${country}</li>
+                            <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
+                        </ul>
+                </div>
+                <div id="future-forecast"></div>
                 `;
 
 
@@ -75,38 +79,44 @@ function callBackFunction(cityLocation, addOrNotAdd){
                 </div>
                 `;
 
-                /* START - ADD PREVIOUS SEARCHES */
-                // let history = document.querySelector(".history");
-                let historyP = document.querySelector(".history p");
-                // historyP.innerHTML =`
-                // <ul>
-                //     <li><a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F</li>
-                // </ul>
-                // `
-                /* Create elements */
-                let ul = document.createElement("ul");
-                let li = document.createElement("li");
-                let anchor = document.createElement("a");
-                anchor.setAttribute("href", "weatherAPI");
-                anchor.setAttribute("onclick", "event.preventDefault()");
-                anchor.textContent = `${city}`;
-                let liText = ` - ${currentWeather}˚F`;
-
-                /* append elements together, adds item to list. */
-                li.append(anchor, liText);
-                ul.append(li);
-                historyP.append(ul); // adds item to list.
-
-                /* When sidebar item is clicked, update main section too. */
-                let historyA = document.querySelectorAll(".history a");
-                console.log(historyA);
-
-                historyA.forEach((tag)=>{
-                    tag.addEventListener("click", (event)=>{
-                        event.preventDefault();
-                        console.log("clicked an a tag");
-                    })
-                });
+                if (addOrNotAdd) {       
+                    /* START - ADD PREVIOUS SEARCHES */
+                    // let history = document.querySelector(".history");
+                    let historyP = document.querySelector(".history p");
+                    // historyP.innerHTML =`
+                    // <ul>
+                    //     <li><a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F</li>
+                    // </ul>
+                    // `
+                    let divHistoryContainer = document.createElement("div");
+    
+                    /* Create elements */
+                    let ul = document.createElement("ul");
+                    let li = document.createElement("li");
+                    let anchor = document.createElement("a");
+                    anchor.textContent = `${city}`;
+                    anchor.setAttribute("href", "#");
+                    // anchor.setAttribute("onclick", "event.preventDefault()");
+                    li.textContent =` - ${currentWeather}˚F`;
+    
+                    /* append elements together, adds item to list. */
+                    li.prepend(anchor);
+                    ul.append(li);
+                    historyP.append(ul); // adds item to list.
+    
+                    /* When sidebar item is clicked, update main section too. */
+                    let historyA = document.querySelectorAll(".history a");
+                    // console.log(historyA);
+    
+                    historyA.forEach((tag)=>{
+                        tag.addEventListener("click", (event)=>{
+                            event.preventDefault();
+                            // console.log(event.target.textContent);
+                            let forHyperLinks = event.target.textContent; // city name clicked on
+                            callBackFunction(forHyperLinks, false); // should not add
+                        })
+                    });
+                }
 
 
                 /* END - ADD PREVIOUS SEARCHES */
