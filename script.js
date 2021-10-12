@@ -1,12 +1,12 @@
-function weatherFunction(cityLocation, addOrNotAdd){
+function callBackFunction(cityLocation, addOrNotAdd){
     let errMessage = document.querySelector("#error-message");
         if (cityLocation !== ""){
+            errMessage.textContent = "";
             /* Clears search bar after user input is submitted */
             let input = document.querySelector("#pick-location");
             input.value = "";
             // event.target["pick-location"].value = "";
             let weatherAPI = "https://wttr.in/" + cityLocation + "?format=j1";
-            console.log(cityLocation);
             /* Fetch - information for url */
             fetch(weatherAPI)
             .then((res)=>{
@@ -30,9 +30,9 @@ function weatherFunction(cityLocation, addOrNotAdd){
                             <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
                         </ul>
                 </div>
-                <div id="future-forecast"></div>
+                <div id="future-forecast" class="display"></div>
                 `;
-
+                /* ^^ future-forecast only appears on page using javascript */
 
             /* Declare Variables for Today, Tomorrow, Day After*/
                 /* TODAY */
@@ -84,13 +84,16 @@ function weatherFunction(cityLocation, addOrNotAdd){
                     /* START - ADD PREVIOUS SEARCHES */
                     // let history = document.querySelector(".history");
                     let historyP = document.querySelector(".history p");
+                    historyP.textContent = ""; // clears default paragraph text
                     // historyP.innerHTML =`
                     // <ul>
                     //     <li><a href="weatherAPI" onclick="event.preventDefault()">${city}</a> - ${currentWeather}˚F</li>
                     // </ul>
-                    // `    
+                    // `
+                    // let divHistoryContainer = document.createElement("div");
+    
                     /* Create elements */
-                    let ul = document.createElement("ul");
+                    // let ul = document.createElement("ul");
                     let li = document.createElement("li");
                     let anchor = document.createElement("a");
                     anchor.textContent = `${city}`;
@@ -100,8 +103,9 @@ function weatherFunction(cityLocation, addOrNotAdd){
     
                     /* append elements together, adds item to list. */
                     li.prepend(anchor);
+                    let ul = document.querySelector(".history ul")
                     ul.append(li);
-                    historyP.append(ul); // adds item to list.
+                    // historyP.append(ul); // adds item to list.
     
                     /* When sidebar item is clicked, update main section too. */
                     let historyA = document.querySelectorAll(".history a");
@@ -112,11 +116,10 @@ function weatherFunction(cityLocation, addOrNotAdd){
                             event.preventDefault();
                             // console.log(event.target.textContent);
                             let forHyperLinks = event.target.textContent; // city name clicked on
-                            weatherFunction(forHyperLinks, false); // should not add
+                            callBackFunction(forHyperLinks, false); // should not add
                         })
                     });
                 }
-
 
                 /* END - ADD PREVIOUS SEARCHES */
                 }).catch((err)=>{
@@ -132,5 +135,5 @@ let userInputForm = document.querySelector("#user-input");
 userInputForm.addEventListener("submit", (event)=>{
     event.preventDefault();
     let userInput = event.target["pick-location"].value;
-    weatherFunction(userInput, true);
+    callBackFunction(userInput, true);
 })

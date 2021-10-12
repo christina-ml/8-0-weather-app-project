@@ -8,8 +8,12 @@
     "forecast forecast sidebar"
     "forecast forecast .";
     grid-gap: 10px;
-    width: 900px;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+#error-message {
+    color: #eee;
 }
 
 #current-city-weather {
@@ -30,34 +34,44 @@
 
 .display {
     border: 1px solid teal;
+    background-color: #eee;
     grid-area: main;
-    background-color: lightblue;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-left: 10px;
+    max-height: 120px;
+    width: 650px;
+    list-style-type: none;
+    /* em unit relative to font-size */
+    line-height: 2em;
 }
 
 .history {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     grid-area: sidebar;
-    margin-right: 10px;
 }
 
-p {
-    /* display: none; */
+.history h4 {
+    margin-right: 40px;
 }
 
+.history p {
+    margin-left: 40px;
+}
 
 #future-forecast{
-    border: 1px dashed red;
+    background-color: white;
+    border: 1px solid white;
     grid-area: forecast;
     /* make another grid */
     display: grid;
     grid-template-areas:
     "today tomorrow after";
     text-align: center;
-    margin-left: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 0;
 }
 
 #todays-weather{
@@ -77,5 +91,5 @@ p {
     list-style-type: none;
     /* remove indentation from `ul` */
     padding-left: 0;
-    line-height: 2;
+    line-height: 2em;
 }
