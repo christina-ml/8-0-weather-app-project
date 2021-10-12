@@ -136,9 +136,17 @@ function helperFunction(cityLocation, addOrNotAdd){
     // })
 }
 
+let searchArray = []; // outside the event listener on submit button
+
 let userInputForm = document.querySelector("#user-input");
 userInputForm.addEventListener("submit", (event)=>{
     event.preventDefault();
     let userInput = event.target["pick-location"].value;
-    helperFunction(userInput, true);
+
+    if (searchArray.includes(userInput)){
+        helperFunction(userInput, false); // don't add to sidebar
+    } else {
+        searchArray.push(userInput);
+        helperFunction(userInput, true); // add to sidebar once
+    }
 })
