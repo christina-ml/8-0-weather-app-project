@@ -19,12 +19,16 @@
         margin-right: 15px;
     }
 
+    #get-weather-button:active {
+        background-color: orange;
+    }
+
     #get-weather-button {
         margin-top: 10px;
     }
 
     #error-message {
-        color: #eee;
+        color: orange;
     }
 
     #current-city-weather {
@@ -75,6 +79,11 @@
     .history li {
         text-align: left;
         list-style-position: inside;
+    }
+
+    .history a:active {
+        background-color: teal;
+        color: white;
     }
 
     #future-forecast{
@@ -133,8 +142,12 @@
         margin: 0 auto;
     }
 
+    #get-weather-button:active {
+        background-color: orange;
+    }
+
     #error-message {
-        color: #eee;
+        color: orange;
     }
 
     #current-city-weather {
@@ -179,6 +192,11 @@
 
     .history p {
         margin-left: 40px;
+    }
+
+    .history a:active {
+        background-color: teal;
+        color: white;
     }
 
     #future-forecast{

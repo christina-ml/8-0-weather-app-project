@@ -1,4 +1,4 @@
-function callBackFunction(cityLocation, addOrNotAdd){
+function helperFunction(cityLocation, addOrNotAdd){
     let errMessage = document.querySelector("#error-message");
         if (cityLocation !== ""){
             errMessage.textContent = "";
@@ -116,7 +116,12 @@ function callBackFunction(cityLocation, addOrNotAdd){
                             event.preventDefault();
                             // console.log(event.target.textContent);
                             let forHyperLinks = event.target.textContent; // city name clicked on
-                            callBackFunction(forHyperLinks, false); // should not add
+                            
+                            /* Scrolls to top of main section when sidebar link is clicked */
+                            weatherDisplay.scrollIntoView({
+                                behavior: 'smooth'
+                            })
+                            helperFunction(forHyperLinks, false); // should not add
                         })
                     });
                 }
@@ -135,5 +140,5 @@ let userInputForm = document.querySelector("#user-input");
 userInputForm.addEventListener("submit", (event)=>{
     event.preventDefault();
     let userInput = event.target["pick-location"].value;
-    callBackFunction(userInput, true);
+    helperFunction(userInput, true);
 })
