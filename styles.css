@@ -1,95 +1,212 @@
-#main-sections-container {
-    /* border: 1px solid black; */
-    font-family: Arial, Helvetica, sans-serif;
-    display: grid;
-    grid-template-areas:
-    "header header header"
-    "main main sidebar"
-    "forecast forecast sidebar"
-    "forecast forecast .";
-    grid-gap: 10px;
-    max-width: 900px;
-    margin: 0 auto;
+/* Mobile layout */
+@media (max-width: 481px) {
+    #main-sections-container {
+        font-family: Arial, Helvetica, sans-serif;
+        display: grid;
+        grid-template-areas:
+        "header"
+        "main"
+        "forecast"
+        "sidebar";
+        grid-gap: 10px;
+        max-width: 481px;
+        margin: 0 auto;
+    }
+
+    #user-input {
+        display: grid;
+        grid-template-rows: 10px 10px 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    #get-weather-button {
+        margin-top: 10px;
+    }
+
+    #error-message {
+        color: #eee;
+    }
+
+    #current-city-weather {
+        list-style-type: none;
+        /* remove indentation from `ul` */
+        padding-left: 0;
+        line-height: 2;
+    }
+
+    #weather-search-header {
+        border: 1px solid black;
+        grid-area: header;
+        background-color: teal;
+        text-align: center;
+        padding-bottom: 20px;
+        color: white;
+        width: 350px;
+    }
+
+    .display {
+        border: 1px solid teal;
+        background-color: #eee;
+        grid-area: main;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: 0;
+        width: 350px;
+        list-style-type: none;
+        /* em unit relative to font-size */
+        line-height: 1.5em;
+        height: 90px;
+    }
+
+    .history {
+        border-top: 1px solid teal;
+        grid-area: sidebar;
+        margin-top: 450px;
+        text-align: center;
+        width: 350px;
+    }
+
+    .history li {
+        list-style-position: inside;
+    }
+
+    #future-forecast{
+        background-color: white;
+        border: 1px solid white;
+        grid-area: forecast;
+        /* make another grid */
+        display: grid;
+        grid-template-areas:
+        "today"
+        "tomorrow"
+        "after";
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding-top: 0;
+        width: 250px;
+    }
+
+    #todays-weather{
+        grid-area: today;
+    }
+
+    #tomorrows-weather{
+        grid-area: tomorrow;
+    }
+
+    #day-after-weather{
+        grid-area: after;
+    }
+
+    /* same styles for all 3 lists */
+    .temperature-forecast{
+        list-style-type: none;
+        /* remove indentation from `ul` */
+        padding-left: 0;
+        line-height: 1.5em;
+    }
 }
 
-#error-message {
-    color: #eee;
-}
 
-#current-city-weather {
-    list-style-type: none;
-    /* remove indentation from `ul` */
-    padding-left: 0;
-    line-height: 2;
-}
+/* //////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////// */
+@media (min-width: 480px) {
+    #main-sections-container {
+        /* border: 1px solid black; */
+        font-family: Arial, Helvetica, sans-serif;
+        display: grid;
+        grid-template-areas:
+        "header header header"
+        "main main sidebar"
+        "forecast forecast sidebar"
+        "forecast forecast .";
+        grid-gap: 10px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
 
-#weather-search-header {
-    border: 1px solid black;
-    grid-area: header;
-    background-color: teal;
-    text-align: center;
-    padding-bottom: 20px;
-    color: white;
-}
+    #error-message {
+        color: #eee;
+    }
 
-.display {
-    border: 1px solid teal;
-    background-color: #eee;
-    grid-area: main;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-left: 10px;
-    max-height: 120px;
-    width: 650px;
-    list-style-type: none;
-    /* em unit relative to font-size */
-    line-height: 2em;
-}
+    #current-city-weather {
+        list-style-type: none;
+        /* remove indentation from `ul` */
+        padding-left: 0;
+        line-height: 2;
+    }
 
-.history {
-    /* border: 1px solid red; */
-    grid-area: sidebar;
-}
+    #weather-search-header {
+        border: 1px solid black;
+        grid-area: header;
+        background-color: teal;
+        text-align: center;
+        padding-bottom: 20px;
+        color: white;
+    }
 
-.history h4 {
-    margin-right: 40px;
-}
+    .display {
+        border: 1px solid teal;
+        background-color: #eee;
+        grid-area: main;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: 10px;
+        max-height: 120px;
+        width: 650px;
+        list-style-type: none;
+        /* em unit relative to font-size */
+        line-height: 2em;
+    }
 
-.history p {
-    margin-left: 40px;
-}
+    .history {
+        /* border: 1px solid red; */
+        grid-area: sidebar;
+    }
 
-#future-forecast{
-    background-color: white;
-    border: 1px solid white;
-    grid-area: forecast;
-    /* make another grid */
-    display: grid;
-    grid-template-areas:
-    "today tomorrow after";
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 20px;
-    padding-top: 0;
-}
+    .history h4 {
+        margin-right: 40px;
+    }
 
-#todays-weather{
-    grid-area: today;
-}
+    .history p {
+        margin-left: 40px;
+    }
 
-#tomorrows-weather{
-    grid-area: tomorrow;
-}
+    #future-forecast{
+        background-color: white;
+        border: 1px solid white;
+        grid-area: forecast;
+        /* make another grid */
+        display: grid;
+        grid-template-areas:
+        "today tomorrow after";
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding-top: 0;
+    }
 
-#day-after-weather{
-    grid-area: after;
-}
+    #todays-weather{
+        grid-area: today;
+    }
 
-/* same styles for all 3 lists */
-.temperature-forecast{
-    list-style-type: none;
-    /* remove indentation from `ul` */
-    padding-left: 0;
-    line-height: 2em;
+    #tomorrows-weather{
+        grid-area: tomorrow;
+    }
+
+    #day-after-weather{
+        grid-area: after;
+    }
+
+    /* same styles for all 3 lists */
+    .temperature-forecast{
+        list-style-type: none;
+        /* remove indentation from `ul` */
+        padding-left: 0;
+        line-height: 2em;
+    }
 }
