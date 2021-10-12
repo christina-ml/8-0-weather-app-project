@@ -52,7 +52,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
         margin-left: 0;
-        /* vw unit for viewport width*/
+        /* vw unit for viewport width */
         width: 95vw;
         list-style-type: none;
         /* em unit relative to font-size */
@@ -68,7 +68,12 @@
         width: 95vw;
     }
 
+    .history ul {
+        padding-left: 20vw;
+    }
+
     .history li {
+        text-align: left;
         list-style-position: inside;
     }
 
