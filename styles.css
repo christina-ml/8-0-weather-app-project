@@ -9,7 +9,6 @@
         "forecast"
         "sidebar";
         grid-gap: 10px;
-        max-width: 481px;
         margin: 0 auto;
     }
 
@@ -42,7 +41,7 @@
         text-align: center;
         padding-bottom: 20px;
         color: white;
-        width: 350px;
+        width: 95vw;
     }
 
     .display {
@@ -53,7 +52,8 @@
         padding-top: 20px;
         padding-bottom: 20px;
         margin-left: 0;
-        width: 350px;
+        /* vw unit for viewport width*/
+        width: 95vw;
         list-style-type: none;
         /* em unit relative to font-size */
         line-height: 1.5em;
@@ -65,7 +65,7 @@
         grid-area: sidebar;
         margin-top: 450px;
         text-align: center;
-        width: 350px;
+        width: 95vw;
     }
 
     .history li {
@@ -86,7 +86,7 @@
         margin: 0 auto;
         margin-top: 20px;
         padding-top: 0;
-        width: 250px;
+        width: 80vw;
     }
 
     #todays-weather{
