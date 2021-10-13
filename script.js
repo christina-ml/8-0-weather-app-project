@@ -18,6 +18,68 @@ function helperFunction(cityLocation, addOrNotAdd){
                 let country = data.nearest_area[0].country[0].value;
                 let currentWeather = data.current_condition[0].FeelsLikeF;
 
+                let weatherDescription = data.current_condition[0].weatherDesc[0].value; // sunny
+                // console.log(weatherDescription, currentWeather)
+                /* Clothing recommendation for Today based on weather forecast */
+                let clothing = "";
+                /* Based on temperature */
+                switch(true){
+                    case currentWeather < "20":
+                        console.log(clothing += "winter coat, sweater, pants, hat, scarf, socks, boots")
+                        break;
+                    case currentWeather >= "20" && currentWeather < "40":
+                        console.log(clothing += "winter coat, sweater, pants, hat, scarf, socks, boots")
+                        break;
+                    case currentWeather >= "40" && currentWeather < "60":
+                        console.log(clothing += "warm coat, sweater/hoodie, pants, socks, sneakers")
+                        break;
+                    case currentWeather >= "60" && currentWeather < "80":
+                        console.log(clothing += "light jacket/hoodie, pants/leggings, sneakers")
+                        break;
+                    case currentWeather >= "80" && currentWeather < "90":
+                        console.log(clothing += "t-shirt, skirt/shorts, dress, sandals")
+                        break;
+                    case currentWeather > "90":
+                        console.log(clothing += "tank top, booty shorts, swimsuit, flip flops")
+                        break;
+                    case weatherDescription.includes("rain"):
+                        clothing += "  and bring an umbrella."
+                        break;
+                }
+
+                /* Based on weather Description */
+                switch(weatherDescription){
+                    case "Sunny":
+                        console.log(clothing += " and sunscreen.")
+                        break;
+                    case "Rain":
+                        console.log(clothing += "  and bring an umbrella.")
+                        break;
+                    case "Overcast":
+                        console.log(clothing += " and try neutral colors.")
+                        break;
+                    case "Partly cloudy":
+                        console.log(clothing += " and bring sunglasses.")
+                        break;
+                    case "Haze":
+                        console.log(clothing += " and a face mask.")
+                        break;
+                    case "Clear":
+                        console.log(clothing += " and a camera.")
+                        break;
+                    case "Mist":
+                        console.log(clothing += " and a rain poncho.")
+                        break;
+                    case "Thunderstorm":
+                        console.log(clothing += " and umbrella, rain coat, rain boots.")
+                        break;
+                    default:
+                        console.log(clothing += " and have a nice day.")
+                }
+                // if (weatherDescription.includes("rain")){
+                //     clothing += "  and bring an umbrella."
+                // }
+
                 /* select main display section */
                 let weatherDisplay = document.querySelector(".display");
                 weatherDisplay.innerHTML = `
@@ -28,11 +90,18 @@ function helperFunction(cityLocation, addOrNotAdd){
                             <li><b>Region:</b> ${region}</li>
                             <li><b>Country:</b> ${country}</li>
                             <li><b>Currently:</b> Feels Like ${currentWeather}˚F</li>
+                            <li><b>What To Wear:</b> ${clothing}</li>
                         </ul>
                 </div>
                 <div id="future-forecast" class="display"></div>
                 `;
                 /* ^^ future-forecast only appears on page using javascript */
+                let afterMainText = document.querySelector(".display current-city-weather");
+
+                
+
+
+
 
             /* Declare Variables for Today, Tomorrow, Day After*/
                 /* TODAY */
