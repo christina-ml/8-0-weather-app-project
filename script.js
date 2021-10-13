@@ -45,6 +45,9 @@ function helperFunction(cityLocation, addOrNotAdd){
                     case weatherDescription.includes("rain"):
                         clothing += "  and bring an umbrella."
                         break;
+                    case weatherDescription.includes("snow"):
+                        clothing += "  and it will snow."
+                        break;
                 }
 
                 /* Based on weather Description */
